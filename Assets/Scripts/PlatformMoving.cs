@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlatformMoving : MonoBehaviour
@@ -38,7 +40,7 @@ public class PlatformMoving : MonoBehaviour
             if (!((Input.GetAxis("Horizontal") != 0) || Input.GetKey("space")))
             {
                 rBody.MovePosition(transform.position + direction * platformSpeed * Time.fixedDeltaTime);
-                pBody.MovePosition(transform.position + transform.right * Time.fixedDeltaTime);
+                pBody.MovePosition(pBody.transform.position + direction * platformSpeed * Time.fixedDeltaTime);
             }
             else
             {
